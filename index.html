@@ -10,8 +10,10 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "footer": "http://localhost:4201/main.js",
-          "dashboard": "http://localhost:4202/main.js",
+          "viewv1data": "http://localhost:4201/main.js",
+          "scrumreport": "http://localhost:4202/main.js",
+          "kanbanreport": "http://localhost:4203/main.js",
+          "uploadfile": "http://localhost:4204/main.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.5/system/single-spa.min.js"
         }
       }
@@ -25,26 +27,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-exports.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
     <style>
+      .header{
+        width: 100%;
+        background-color: blue;
+        color: white;
+        padding: 2%;
+        text-align: center;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 18px;
+      }
+      .footer{
+        width: 100%;
+        background-color: rgb(51, 51, 51);;
+        color: white;
+        padding: 2%;
+        text-align: center;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 18px;
+      }
     </style>
   </head>
   <body>
+    <div class="header">Agile Productivity Dashboard</div>
     <script>
       System.import('single-spa').then(function (singleSpa) {
         singleSpa.registerApplication(
-          'dashboard',
+          'uploadfile',
           function () {
-            return System.import('dashboard');
+            return System.import('uploadfile');
           },
           function (location) {
             // return location.pathname.startsWith('/app2');
             return true;
           }
         )
-
         singleSpa.registerApplication(
-          'footer',
+          'scrumreport',
           function () {
-            return System.import('footer');
+            return System.import('scrumreport');
+          },
+          function (location) {
+            // return location.pathname.startsWith('/app2');
+            return true;
+          }
+        )
+        singleSpa.registerApplication(
+          'kanbanreport',
+          function () {
+            return System.import('kanbanreport');
+          },
+          function (location) {
+            // return location.pathname.startsWith('/app2');
+            return true;
+          }
+        )    
+                
+        singleSpa.registerApplication(
+          'viewv1data',
+          function () {
+            return System.import('viewv1data');
           },
           function (location) {
             // return location.pathname.startsWith('/app1');
@@ -54,6 +95,7 @@
         
         singleSpa.start();
       })
-    </script>    
+    </script>        
   </body>
+  <div class="footer">Copy right @ lexisnexis</div>
 </html>
