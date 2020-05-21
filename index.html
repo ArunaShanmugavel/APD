@@ -13,8 +13,7 @@
           "viewv1data": "http://localhost:4201/main.js",
           "scrumreport": "http://localhost:4202/main.js",
           "kanbanreport": "http://localhost:4203/main.js",
-          "uploadfile": "http://localhost:4204/main.js",
-          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.5/system/single-spa.min.js"
+          "uploadfile": "http://localhost:4204/main.js"
         }
       }
     </script>
@@ -28,7 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
     <style>
       .headertext {
-        background-color: rgb(55, 66, 228);
+        background-color:#285943;
         color: white;
         padding: 1%;
         text-align: center;
@@ -54,7 +53,7 @@
       <h1>Agile Productivity Dashboard</h1>
     </div>
     <script>
-      System.import('single-spa').then(function (singleSpa) {
+      System.import('./single-spa.min.js').then(function (singleSpa) {
         singleSpa.registerApplication(
           'uploadfile',
           function () {
@@ -99,9 +98,6 @@
         
         singleSpa.start();
       })
-    </script>        
-    <div class="footer">
-      Copyrights @ lexisnexis
-    </div>
+    </script>
   </body>  
 </html>
